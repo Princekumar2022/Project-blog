@@ -8,6 +8,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+app.get("/", (req, res) => {
+    res.status(200).json({
+      message: "Hello !! TESTING DB Updated",
+      url: `${req.protocol}://${req.get("host")}`,
+    });
+  });
+
 mongoose.connect("mongodb+srv://prince123:6K5hPtPQQ0qwy2UJ@cluster0.gpsporz.mongodb.net/pk-21?retryWrites=true&w=majority", {
     useNewUrlParser: true
 })
